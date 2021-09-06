@@ -6,8 +6,8 @@
 [ext_resource path="res://gfx/blue_button12.png" type="Texture" id=4]
 [ext_resource path="res://gfx/blue_button11.png" type="Texture" id=5]
 
-[sub_resource type="DynamicFont" id=1]
-size = 40
+[sub_resource type="DynamicFont" id=4]
+size = 32
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -52,18 +52,16 @@ margin_top = 75.0
 margin_right = 976.0
 margin_bottom = 475.0
 rect_min_size = Vector2( 0, 400 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Placeholder Text"
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 479.0
 margin_right = 976.0
 margin_bottom = 552.0
 custom_constants/separation = 10
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,7 +86,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 margin_left = 903.0
 margin_right = 976.0
 margin_bottom = 73.0
@@ -100,5 +98,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="text_entered" from="VBoxContainer/HBoxContainer/PlayerText" to="." method="_text_entered"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer/PlayerText" to="." method="_on_PlayerText_text_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
