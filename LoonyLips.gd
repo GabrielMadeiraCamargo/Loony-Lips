@@ -2,6 +2,8 @@ extends Control
 
 var player_words = []
 
+<<<<<<< HEAD
+=======
 #var template = [
 #	{
 #	"prompts": ["a name", "a noun", "an adverb", "an adjective"],
@@ -12,6 +14,7 @@ var player_words = []
 #	"story": "There once was %s called %s who searched far and wide for the mythical %s noun of %s. "
 #	}
 #	]
+>>>>>>> d36e247eeaf814d37b15f30574a3622ac3b385e7
 var current_story = {}
 
 onready var PlayerText = $VBoxContainer/HBoxContainer/PlayerText
@@ -24,11 +27,29 @@ func _ready():
 	PlayerText.grab_focus()
 
 func set_current_story():
+<<<<<<< HEAD
+	var stories = get_from_json("StoryBook.json")
+	randomize()
+	current_story = stories[randi() % stories.size()]
+#	var stories = $StoryBook.get_child_count()
+#	var selected_story = randi() % stories
+#	current_story.prompts = $StoryBook.get_child(selected_story).prompts
+#	current_story.story = $StoryBook.get_child(selected_story).story
+
+func get_from_json(filename):
+	var file = File.new()
+	file.open(filename, File.READ)
+	var text = file.get_as_text()
+	var data = parse_json(text)
+	file.close()
+	return data
+=======
 	var stories = $StoryBook.get_child_count()
 	var selected_story = randi() % stories
 	randomize()
 	current_story.prompts = $StoryBook.get_child(selected_story).prompts
 	current_story.story = $StoryBook.get_child(selected_story).story
+>>>>>>> d36e247eeaf814d37b15f30574a3622ac3b385e7
 
 func _on_PlayerText_text_entered(new_text):
 	add_to_player_words()
